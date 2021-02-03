@@ -69,7 +69,8 @@ class WeatherActivity : AppCompatActivity(), ChooserListener {
                 onPermissionGranted()
             }
             if (resultCode == Activity.RESULT_CANCELED) {
-                finish()
+                currentLocation?.let { showLocationInfo(it) }
+                currentWeather?.let { showWeather(it) }
             }
         }
     }

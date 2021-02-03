@@ -49,7 +49,7 @@ class TurnOnGpsAlert(
         result.setResultCallback(this)
     }
 
-    private fun buildGoogleApiClient() {
+    private fun buildGoogleApiClient() = synchronized(this) {
         googleApiClient = GoogleApiClient.Builder(activity.applicationContext).addApi(LocationServices.API).build()
         googleApiClient.connect()
         val locationRequest = LocationRequest().setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY)
