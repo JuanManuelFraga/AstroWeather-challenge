@@ -1,0 +1,32 @@
+<resources>
+
+    <string name="app_name">AstroWeather</string>
+
+    <string name="unknown_error">unknown error please retry</string>
+    <string name="connection_error">It seems there is no internet!</string>
+    <string name="could_not_find_user">Make sure you have the location turned on</string>
+
+    <string name="permission_rejected_settings">Go to settings</string>
+    <string name="permission_location_title">Do you give us permissions?</string>
+    <string name="permission_location_subtitle">To give you a better experience we need you to grant us location permissions.</string>
+    <string name="permission_location_button">Grant permissions</string>
+
+    <string name="weather_error_title">Something went wrong</string>
+    <string name="weather_error_button">Retry</string>
+    <string name="weather_go_to_chooser_tile">Choose new location</string>
+
+    <string name="degrees_symbol">°C</string>
+    <string name="temperature">Temperature</string>
+    <string name="wind">Wind</string>
+    <string name="humidity">Humidity</string>
+    <string name="montevideo">Montevideo</string>
+    <string name="london">London</string>
+    <string name="sao_paulo">São Paulo</string>
+    <string name="buenos_aires">Buenos Aires</string>
+    <string name="munich">Munich</string>
+    <string name="beijing">Beijing</string>
+
+    <string name="chooser_title">Select an option to find the weather</string>
+    <string name="chooser_user_option">Current location</string>
+
+</resources>

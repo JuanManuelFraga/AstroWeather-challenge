@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeToRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/weatherParent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutAnimation="@anim/weather_item_animator"
+        android:background="@drawable/day_background">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/weatherLottie"
+            android:layout_width="@dimen/_110sdp"
+            android:layout_height="@dimen/_110sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:layout_marginRight="@dimen/_25sdp"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true" />
+
+        <TextView
+            android:id="@+id/weatherTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginLeft="@dimen/_25sdp"
+            android:fontFamily="@font/proxima_nova_soft_regular"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_70sdp"
+            android:translationY="@dimen/_minus30sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weatherLottie"
+            tools:text="17" />
+
+        <TextView
+            android:id="@+id/weatherTemperatureDegrees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/proxima_nova_soft_regular"
+            android:gravity="center"
+            android:text="@string/degrees_symbol"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_30sdp"
+            android:translationY="@dimen/_minus30sdp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/weatherTemperature"
+            app:layout_constraintTop_toBottomOf="@+id/weatherLottie" />
+
+        <TextView
+            android:id="@+id/weatherTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proxima_nova_soft_medium"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp"
+            android:translationY="@dimen/_minus30sdp"
+            app:layout_constraintStart_toStartOf="@+id/weatherTemperature"
+            app:layout_constraintTop_toBottomOf="@+id/weatherTemperature"
+            tools:text="Londres" />
+
+        <TextView
+            android:id="@+id/weatherSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proxima_nova_soft_regular"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16sdp"
+            android:translationY="@dimen/_minus30sdp"
+            app:layout_constraintStart_toStartOf="@+id/weatherTemperature"
+            app:layout_constraintTop_toBottomOf="@+id/weatherTitle"
+            tools:text="Clear" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/weatherProperties"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/properties_background"
+            android:overScrollMode="never"
+            android:paddingBottom="@dimen/_70sdp"
+            android:paddingTop="@dimen/_56sdp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weatherSubtitle">
+
+            <LinearLayout
+                android:id="@+id/weatherPropertiesContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </androidx.core.widget.NestedScrollView>
+
+        <TextView
+            android:id="@+id/locationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:fontFamily="@font/proxima_nova_soft_bold"
+            android:gravity="center"
+            android:textColor="@color/darkGrey"
+            android:textSize="@dimen/_17sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/locationIcon"
+            app:layout_constraintTop_toTopOf="@+id/weatherProperties"
+            tools:text="Montevideo" />
+
+        <ImageView
+            android:id="@+id/locationIcon"
+            android:layout_width="@dimen/_21sdp"
+            android:layout_height="@dimen/_21sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/locationTitle"
+            app:layout_constraintEnd_toStartOf="@+id/locationTitle"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/locationTitle"
+            tools:src="@drawable/city_uruguay_flag_icon" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/changeCityButton"
+            style="@style/AstroWeatherButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_18sdp"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:layout_marginBottom="@dimen/_28sdp"
+            android:text="@string/weather_go_to_chooser_tile"
+            android:textSize="@dimen/_15sdp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:backgroundTint="@color/blue" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

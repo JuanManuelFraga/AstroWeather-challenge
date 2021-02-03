@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="@drawable/ripple_gray"
+    android:orientation="horizontal"
+    android:padding="@dimen/_12sdp">
+
+    <ImageView
+        android:id="@+id/flagIcon"
+        android:layout_width="@dimen/_21sdp"
+        android:layout_height="@dimen/_21sdp"
+        tools:src="@drawable/city_germany_flag_icon" />
+
+    <TextView
+        android:id="@+id/cityName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_14sdp"
+        android:layout_marginLeft="@dimen/_14sdp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/proxima_nova_soft_semibold"
+        android:gravity="start"
+        android:maxLines="1"
+        android:textColor="@color/darkGrey"
+        android:textSize="@dimen/_14sdp"
+        tools:text="Munich" />
+
+</LinearLayout>

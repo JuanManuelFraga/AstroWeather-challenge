@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_height="wrap_content"
+    tools:layout_width="match_parent"
+    tools:paddingBottom="@dimen/_12sdp"
+    tools:paddingTop="@dimen/_12sdp"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <TextView
+        android:id="@+id/rowTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_weight="1"
+        android:fontFamily="@font/proxima_nova_soft_semibold"
+        android:gravity="start"
+        android:textColor="@color/darkGrey"
+        android:textSize="@dimen/_14sdp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/rowIcon"
+        tools:text="Temperature" />
+
+    <ImageView
+        android:id="@+id/rowIcon"
+        android:layout_width="@dimen/_26sdp"
+        android:layout_height="@dimen/_26sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/rowDescription"
+        app:layout_constraintStart_toEndOf="@+id/rowTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/temperature_icon" />
+
+    <TextView
+        android:id="@+id/rowDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:layout_marginRight="@dimen/_25sdp"
+        android:layout_weight="1"
+        android:fontFamily="@font/proxima_nova_soft_regular"
+        android:gravity="end"
+        android:textColor="@color/darkGrey"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="@dimen/_13sdp"
+        app:layout_constraintStart_toEndOf="@+id/rowIcon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="26 / 12 °C" />
+
+</merge>

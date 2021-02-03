@@ -1,0 +1,99 @@
+apply plugin: 'com.android.application'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+
+    compileSdkVersion maxApiLevel.toInteger()
+    ndkVersion ndkVersion
+
+    defaultConfig {
+        applicationId "com.astroweather"
+        minSdkVersion minApiLevel
+        targetSdkVersion maxApiLevel
+        versionCode project.versionCode.toInteger()
+        versionName project.appVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'BASE_URL', getProjectProperty('BASE_URL')
+        buildConfigField 'String', 'API_KEY', getProjectProperty('API_KEY')
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "androidx.core:core-ktx:$coreVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    implementation "androidx.fragment:fragment-ktx:$fragmentXVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayoutVersion"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipeToRefreshVersion"
+
+    implementation "com.google.android.material:material:$materialVersion"
+
+    implementation "com.google.code.gson:gson:$gsonVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$gsonConverterVersion"
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+
+    implementation "com.google.dagger:hilt-android:$daggerVersion"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hiltVersion"
+    implementation "androidx.hilt:hilt-common:$hiltVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$daggerVersion"
+    kapt "androidx.hilt:hilt-compiler:$hiltVersion"
+
+    implementation "com.intuit.sdp:sdp-android:$dimensVersion"
+
+    implementation "com.facebook.shimmer:shimmer:$shimmerVersion"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+
+    implementation "com.google.android.gms:play-services-location:$googlePlayServices"
+
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
+    testImplementation "androidx.test:core:$testCoreVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinTestVersion"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKVersion"
+    testImplementation "androidx.arch.core:core-testing:$archCoreVersion"
+}
+
+def String getProjectProperty(String propertyName) {
+    String value = System.getenv(propertyName)
+    String propertyValue = value ? value : ""
+    if (hasProperty(propertyName)) {
+        propertyValue = this.properties[propertyName]
+    }
+    return propertyValue
+}

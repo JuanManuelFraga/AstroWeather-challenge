@@ -1,0 +1,33 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorAccent">@color/blueSecondary</item>
+        <item name="bottomSheetDialogTheme">@style/AstroWeatherBottomSheetDialogTheme</item>
+    </style>
+
+    <style name="AstroWeatherButtonStyle" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/proxima_nova_soft_medium</item>
+        <item name="cornerRadius">@dimen/_10sdp</item>
+        <item name="android:paddingLeft">@dimen/_23sdp</item>
+        <item name="android:paddingRight">@dimen/_23sdp</item>
+        <item name="android:paddingBottom">@dimen/_10sdp</item>
+        <item name="android:paddingTop">@dimen/_10sdp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/_36sdp</item>
+        <item name="android:theme">@style/Theme.MaterialComponents</item>
+    </style>
+
+    <style name="AstroWeatherModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/base_bottom_sheet_background</item>
+    </style>
+
+    <style name="AstroWeatherBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AstroWeatherModalStyle</item>
+        <item name="android:windowSoftInputMode">adjustResize|stateVisible</item>
+    </style>
+
+</resources>
